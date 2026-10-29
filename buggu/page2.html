@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A Little Letter for Buggu 💙</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 25px 15px 75px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Trebuchet MS", sans-serif;
+      color: #315475;
+      background: linear-gradient(135deg, #d9f0ff, #f0f8ff, #c6e5ff);
+      overflow-x: hidden;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 680px;
+      padding: 35px 25px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 2px solid #b9def9;
+      border-radius: 30px;
+      box-shadow: 0 12px 35px rgba(65, 130, 180, 0.18);
+      animation: appear 1s ease;
+    }
+
+    .teddy {
+      text-align: center;
+      font-size: 65px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    h1 {
+      text-align: center;
+      color: #347eb7;
+      font-size: clamp(27px, 6vw, 40px);
+      margin: 15px 0;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #5b8bb4;
+      font-style: italic;
+      margin-bottom: 25px;
+    }
+
+    .letter {
+      padding: 22px;
+      background: #edf7ff;
+      border: 1px solid #c7e5fb;
+      border-radius: 20px;
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .letter p {
+      margin: 0 0 18px;
+    }
+
+    .letter p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight {
+      color: #347eb7;
+      font-weight: bold;
+    }
+
+    .music-button {
+      display: block;
+      margin: 25px auto 10px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      background: #4d94ca;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .music-button:hover {
+      background: #347eb7;
+      transform: scale(1.04);
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .navigation a {
+      padding: 12px 18px;
+      border-radius: 25px;
+      background: #b5dcf8;
+      color: #244f73;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .navigation a:hover {
+      background: #94cdf3;
+      transform: scale(1.04);
+    }
+
+    .watermark {
+      position: fixed;
+      bottom: 12px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #477ba3;
+      font-size: 12px;
+      letter-spacing: 1px;
+      pointer-events: none;
+    }
+
+    .floating {
+      position: fixed;
+      bottom: -30px;
+      color: #62a8dc;
+      pointer-events: none;
+      animation: rise 8s linear infinite;
+    }
+
+    @keyframes rise {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.65;
+      }
+      to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+
+    <div class="teddy">🧸💙</div>
+
+    <h1>A Little Letter for You</h1>
+
+    <p class="subtitle">
+      Some feelings deserve their own little page. ♡
+    </p>
+
+    <section class="letter">
+
+      <p>Dear Buggu, 💌</p>
+
+      <p>
+        Pata hai, kabhi-kabhi kuch feelings ko words mein explain
+        karna bahut difficult hota hai. Dil mein bahut kuch hota
+        hai, par samajh nahi aata ki shuru kahan se karein.
+      </p>
+
+      <p>
+        I just want you to remember that
+        <span class="highlight">your feelings matter.</span>
+        You don't always have to pretend to be okay, and you
+        don't have to have every answer figured out.
+      </p>
+
+      <p>
+        I hope you always find space to be yourself — to laugh
+        at silly things, talk about your worries, share your
+        dreams, and enjoy even the smallest moments.
+      </p>
+
+      <p>
+        Aur haan, tumhari chhoti-chhoti efforts bhi important
+        hain. Har baar perfect words ki zaroorat nahi hoti;
+        kabhi-kabhi genuine care hi sab kuch keh deti hai. 💙
+      </p>
+
+      <p>
+        If a day feels heavy, take it one step at a time.
+        If something bothers you, it's okay to talk about it.
+        And if you need some quiet time, that's okay too.
+      </p>
+
+      <p>
+        I hope our little world becomes a collection of happy
+        memories, honest conversations, silly jokes, and moments
+        that make us smile whenever we remember them. 🌙
+      </p>
+
+      <p>
+        <span class="highlight">
+          You don't have to be perfect to be appreciated.
+        </span>
+        Just being yourself is enough to make you someone
+        worth celebrating.
+      </p>
+
+      <p>
+        Take care of yourself, keep believing in your dreams,
+        and never forget to appreciate the person you're
+        becoming. 🧸✨
+      </p>
+
+      <p>
+        With lots of warmth and little blue hearts,<br>
+        <strong>Your Buggu's favorite person 💙</strong>
+      </p>
+
+    </section>
+
+    <button class="music-button" id="musicButton" type="button">
+      🎵 Play your emotional song
+    </button>
+
+    <audio id="backgroundMusic" loop>
+      <source src="../songs/buggu/emotional.mp3" type="audio/mpeg">
+    </audio>
+
+    <nav class="navigation">
+      <a href="page1.html">← Welcome Page</a>
+      <a href="page3.html">Our Little Memories →</a>
+    </nav>
+
+  </main>
+
+  <div class="watermark">♡ @x2.rohuuuu.baghel ♡</div>
+
+  <script>
+    const music = document.getElementById("backgroundMusic");
+    const button = document.getElementById("musicButton");
+
+    button.addEventListener("click", async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+          button.textContent = "⏸ Pause your emotional song";
+        } catch (error) {
+          button.textContent = "Song unavailable — check the MP3 file";
+        }
+      } else {
+        music.pause();
+        button.textContent = "🎵 Play your emotional song";
+      }
+    });
+
+    for (let i = 0; i < 14; i++) {
+      const decoration = document.createElement("div");
+      decoration.className = "floating";
+      decoration.textContent = ["♡", "♥", "✦", "☁", "💙"][i % 5];
+      decoration.style.left = Math.random() * 100 + "vw";
+      decoration.style.animationDelay = Math.random() * 8 + "s";
+      decoration.style.animationDuration = (6 + Math.random() * 6) + "s";
+      decoration.style.fontSize = (14 + Math.random() * 17) + "px";
+      document.body.appendChild(decoration);
+    }
+  </script>
+
+</body>
+</html>
