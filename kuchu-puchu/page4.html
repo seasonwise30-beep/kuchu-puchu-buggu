@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#fff0f6">
+
+    <title>Our Little Memories 🧸</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 35px 18px 75px;
+
+            font-family: "Trebuchet MS", Arial, sans-serif;
+
+            color: #704c5e;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #ffe1ed,
+                    transparent 40%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    #ffdfeb,
+                    transparent 40%
+                ),
+                #fff8fb;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+            animation: fadeIn 1s ease;
+        }
+
+        .label {
+            display: inline-block;
+
+            padding: 9px 17px;
+            margin-bottom: 24px;
+
+            border-radius: 30px;
+
+            background: #fff0f6;
+            color: #d66b99;
+
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .main-emoji {
+            font-size: 65px;
+            margin-bottom: 15px;
+
+            animation: float 3s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 48px);
+
+            line-height: 1.25;
+
+            color: #df709d;
+
+            margin-bottom: 18px;
+        }
+
+        .subtitle {
+            max-width: 570px;
+
+            margin: 0 auto 35px;
+
+            font-size: 15px;
+            line-height: 1.9;
+
+            color: #927487;
+        }
+
+        .memory-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 18px;
+
+            text-align: left;
+        }
+
+        .memory-card {
+            padding: 25px 22px;
+
+            border-radius: 24px;
+
+            background: rgba(255, 255, 255, 0.86);
+
+            border: 1px solid #ffffff;
+
+            box-shadow: 0 10px 30px rgba(207, 116, 157, 0.09);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow: 0 15px 35px rgba(207, 116, 157, 0.15);
+        }
+
+        .memory-icon {
+            font-size: 35px;
+            margin-bottom: 14px;
+        }
+
+        .memory-card h2 {
+            font-size: 19px;
+
+            color: #d66d99;
+
+            margin-bottom: 12px;
+        }
+
+        .memory-card p {
+            font-size: 14px;
+            line-height: 1.9;
+
+            color: #84697a;
+        }
+
+        .featured-card {
+            grid-column: 1 / -1;
+
+            text-align: center;
+
+            padding: 30px 25px;
+
+            background: linear-gradient(
+                135deg,
+                #fff,
+                #fff0f6
+            );
+
+            border: 1px solid #ffdce9;
+        }
+
+        .featured-card h2 {
+            font-size: 22px;
+        }
+
+        .quote {
+            max-width: 590px;
+
+            margin: 0 auto;
+
+            font-size: 16px;
+            line-height: 2;
+
+            color: #8a6178;
+        }
+
+        .quote strong {
+            color: #d75f94;
+        }
+
+        .divider {
+            margin: 32px 0;
+
+            color: #e49abc;
+            letter-spacing: 7px;
+        }
+
+        .closing {
+            font-size: 15px;
+            line-height: 2;
+
+            color: #926d81;
+
+            margin-bottom: 28px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 25px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 13px 21px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            transition: transform 0.25s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+        }
+
+        .back {
+            color: #c45f8b;
+
+            background: #fff0f6;
+
+            border: 1px solid #f4c6da;
+        }
+
+        .next {
+            color: white;
+
+            background: linear-gradient(
+                100deg,
+                #ff83b2,
+                #e879a8
+            );
+
+            box-shadow: 0 6px 20px #e879a82e;
+        }
+
+        .music-button {
+            margin-top: 24px;
+
+            padding: 11px 17px;
+
+            border: 1px solid #f2c4d8;
+            border-radius: 25px;
+
+            background: #fff7fa;
+
+            color: #bb5c86;
+
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .music-note {
+            margin-top: 10px;
+
+            font-size: 11px;
+            color: #a58b99;
+        }
+
+        .watermark {
+            position: fixed;
+
+            right: 12px;
+            bottom: 12px;
+
+            z-index: 5;
+
+            padding: 8px 12px;
+
+            border-radius: 30px;
+
+            border: 1px solid #ffffffc0;
+
+            background: #ffffffbd;
+
+            color: #b77b99;
+            font-size: 11px;
+
+            backdrop-filter: blur(8px);
+        }
+
+        .heart {
+            position: fixed;
+
+            bottom: -40px;
+
+            pointer-events: none;
+
+            z-index: -1;
+
+            color: #e99cba;
+            opacity: 0.6;
+
+            animation: rise linear forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-9px);
+            }
+        }
+
+        @keyframes rise {
+            from {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.6;
+            }
+
+            to {
+                transform: translateY(-110vh) rotate(25deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .memory-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-card {
+                grid-column: auto;
+            }
+
+            .memory-card {
+                padding: 23px 20px;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .button {
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="label">
+            Our Little World ♡
+        </div>
+
+        <div class="main-emoji">
+            🧸
+        </div>
+
+        <h1>
+            Our Little<br>
+            Memories 💗
+        </h1>
+
+        <p class="subtitle">
+            Sometimes, it's the smallest moments
+            that quietly become our favourite memories. 🌷
+        </p>
+
+
+        <section class="memory-grid">
+
+            <!-- MEMORY 1 -->
+
+            <article class="memory-card">
+
+                <div class="memory-icon">
+                    💬
+                </div>
+
+                <h2>
+                    Our Random Talks
+                </h2>
+
+                <p>
+                    Woh random conversations jo kabhi
+                    ek simple hello se shuru hoti hain
+                    aur pata hi nahi chalta kab itni
+                    lambi ho jaati hain. 🥹
+                </p>
+
+            </article>
+
+
+            <!-- MEMORY 2 -->
+
+            <article class="memory-card">
+
+                <div class="memory-icon">
+                    🐣
+                </div>
+
+                <h2>
+                    Your Silly Side
+                </h2>
+
+                <p>
+                    Tumhari woh funny harkatein,
+                    random jokes aur chhoti-chhoti
+                    shararatein jo tumhe tum banati hain.
+                    Please, aise hi rehna. 🎀
+                </p>
+
+            </article>
+
+
+            <!-- MEMORY 3 -->
+
+            <article class="memory-card">
+
+                <div class="memory-icon">
+                    💌
+                </div>
+
+                <h2>
+                    Little Messages
+                </h2>
+
+                <p>
+                    Kabhi ek simple sa message,
+                    kabhi ek chhota sa reply...
+                    Kabhi-kabhi itni si baat bhi
+                    dil ko achhi lag jaati hai. 💗
+                </p>
+
+            </article>
+
+
+            <!-- MEMORY 4 -->
+
+            <article class="memory-card">
+
+                <div class="memory-icon">
+                    🌷
+                </div>
+
+                <h2>
+                    Just Being You
+                </h2>
+
+                <p>
+                    Tumhe har waqt perfect hone ki
+                    zaroorat nahi. Tumhari real,
+                    silly aur natural personality
+                    hi tumhe special banati hai. 🫶🏻
+                </p>
+
+            </article>
+
+
+            <!-- FEATURED MEMORY -->
+
+            <article class="memory-card featured-card">
+
+                <div class="memory-icon">
+                    💗
+                </div>
+
+                <h2>
+                    My Favourite Little Feeling
+                </h2>
+
+                <p class="quote">
+                    Shayad har moment extraordinary
+                    nahi hota, aur har conversation
+                    memorable nahi hoti...
+
+                    <br><br>
+
+                    Lekin kabhi-kabhi kisi special
+                    insaan ke saath ek ordinary moment
+                    bhi <strong>yaad rakhne layak ban jaata hai.</strong>
+
+                    <br><br>
+
+                    Aur mere liye, tumhare saath
+                    share kiye gaye kuch moments
+                    bilkul aise hi hain. 🥹🎀
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <div class="divider">
+            ♡ ───── ✧ ───── ♡
+        </div>
+
+
+        <p class="closing">
+            Memories don't always need photographs.<br>
+
+            Sometimes, a little feeling is enough
+            to bring a moment back. 💌
+        </p>
+
+
+        <div class="navigation">
+
+            <a href="page2.html" class="button back">
+                ← Previous Page
+            </a>
+
+            <a href="page4.html" class="button next">
+                One Little Promise → 🫶🏻
+            </a>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="music-button"
+            id="musicButton"
+        >
+            ♫ Play Background Music
+        </button>
+
+        <p class="music-note">
+            A soft melody for your favourite memories ♡
+        </p>
+
+        <audio
+            id="backgroundMusic"
+            src="../songs/kuchu-puchu/memories.mp3"
+            loop
+            preload="none"
+        ></audio>
+
+    </main>
+
+
+    <!-- INSTAGRAM WATERMARK -->
+
+    <div class="watermark">
+        ♡ @x2.rohuuuu.baghel ♡
+    </div>
+
+
+    <!-- MUSIC PLAYER AND FLOATING HEARTS -->
+
+    <script>
+        const music = document.getElementById("backgroundMusic");
+
+        const musicButton = document.getElementById("musicButton");
+
+        musicButton.addEventListener("click", async () => {
+            try {
+                if (music.paused) {
+                    await music.play();
+
+                    musicButton.textContent = "♫ Pause Music";
+                } else {
+                    music.pause();
+
+                    musicButton.textContent = "♫ Play Background Music";
+                }
+            } catch (error) {
+                musicButton.textContent =
+                    "Music unavailable — check your song file";
+            }
+        });
+
+
+        const symbols = ["♡", "♥", "✧", "୨୧"];
+
+        function createHeart() {
+            const heart = document.createElement("span");
+
+            heart.className = "heart";
+
+            heart.textContent =
+                symbols[Math.floor(Math.random() * symbols.length)];
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (12 + Math.random() * 17) + "px";
+
+            heart.style.animationDuration =
+                (7 + Math.random() * 6) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 14000);
+        }
+
+        setInterval(createHeart, 1000);
+    </script>
+
+</body>
+
+</html>
