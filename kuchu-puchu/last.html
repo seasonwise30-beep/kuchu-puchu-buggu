@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Special Person ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3, #c084fc);
+      color: white;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 400px;
+      padding: 35px 25px;
+      text-align: center;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 15px 40px rgba(100, 0, 40, 0.2);
+      z-index: 2;
+      animation: appear 1.2s ease;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .main-heart {
+      font-size: 75px;
+      animation: heartbeat 1.2s infinite;
+      margin-bottom: 15px;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .message {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    button {
+      border: none;
+      padding: 13px 24px;
+      border-radius: 30px;
+      background: white;
+      color: #ff477e;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    button:hover {
+      transform: scale(1.06);
+      background: #fff0f5;
+    }
+
+    #surprise {
+      display: none;
+      margin-top: 22px;
+      font-size: 17px;
+      line-height: 1.8;
+      animation: appear 0.8s ease;
+    }
+
+    .floating-heart {
+      position: absolute;
+      bottom: -40px;
+      font-size: 22px;
+      pointer-events: none;
+      animation: floatUp linear forwards;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.9;
+      }
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <div class="main-heart">❤️</div>
+
+    <h1>Hey, My Favourite Person! 💕</h1>
+
+    <p class="message">
+      Duniya mein bahut log hain,<br>
+      par tumhari jagah koi nahi le sakta. 🥹❤️<br><br>
+
+      Tumhari smile meri favourite hai,<br>
+      aur tumse baat karna mere din ka<br>
+      sabse pyara moment hai. 🌸
+    </p>
+
+    <button onclick="showLove()">
+      Ek Surprise Hai 💌
+    </button>
+
+    <div id="surprise">
+      <h2>💖 Just For You 💖</h2>
+
+      <p>
+        Tum mere liye bahut special ho. 🫶<br>
+        Thank you meri life mein hone ke liye.<br><br>
+
+        Chahe din kaisa bhi ho,<br>
+        tumhari ek smile sab kuch better kar deti hai. ✨<br><br>
+
+        <strong>You are truly one of a kind! ❤️</strong>
+      </p>
+
+      <p style="font-size: 28px; margin-top: 15px;">
+        🧸💗🌷
+      </p>
+    </div>
+
+    <div class="footer">
+      Made with ❤️ just for you
+    </div>
+  </div>
+
+  <script>
+    function showLove() {
+      const surprise = document.getElementById("surprise");
+
+      surprise.style.display = "block";
+
+      document.querySelector("button").textContent =
+        "You Are Special ❤️";
+
+      createHearts(25);
+    }
+
+    function createHearts(count = 1) {
+      for (let i = 0; i < count; i++) {
+        const heart = document.createElement("div");
+
+        heart.className = "floating-heart";
+
+        const emojis = ["❤️", "💕", "💖", "💗", "💘", "🌸"];
+        heart.textContent =
+          emojis[Math.floor(Math.random() * emojis.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration =
+          (3 + Math.random() * 4) + "s";
+
+        heart.style.fontSize =
+          (16 + Math.random() * 25) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 7000);
+      }
+    }
+
+    setInterval(() => createHearts(2), 700);
+  </script>
+
+</body>
+</html>
