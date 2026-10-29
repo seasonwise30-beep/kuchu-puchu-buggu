@@ -190,6 +190,18 @@
   </style>
 </head>
 
+    <audio id="bgMusic" autoplay loop>
+  <source src="../songs/buggu/memories.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("bgMusic");
+
+  music.play().catch(() => {
+    console.log("Browser ne automatic music play karne se rok diya.");
+  });
+</script>
+    
 <body>
 
   <main class="container">
