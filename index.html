@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#fff0f5">
+
+    <title>A Little World of Feelings 💗</title>
+
+    <meta
+        name="description"
+        content="Two hearts, two stories, and a little world full of feelings."
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink: #ff75a8;
+            --pink-light: #fff0f5;
+            --blue: #7c9cff;
+            --blue-light: #eef3ff;
+            --text: #514452;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    #ffe0ed,
+                    transparent 40%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    #e2eaff,
+                    transparent 40%
+                ),
+                #fffafd;
+
+            color: var(--text);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px 18px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+
+            animation: appear 1s ease;
+        }
+
+        .top-label {
+            display: inline-block;
+
+            padding: 9px 18px;
+            border-radius: 30px;
+
+            background: rgba(255, 255, 255, 0.8);
+
+            border: 1px solid #ffe0ec;
+
+            color: #d75d8d;
+
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: clamp(35px, 7vw, 62px);
+            line-height: 1.2;
+
+            margin-bottom: 18px;
+
+            background: linear-gradient(
+                90deg,
+                #f36a9d,
+                #9c85f5,
+                #739cff
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            line-height: 1.9;
+
+            max-width: 540px;
+
+            margin: 0 auto 35px;
+
+            color: #766979;
+        }
+
+        .intro {
+            font-size: 15px;
+            line-height: 1.9;
+
+            margin-bottom: 35px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 22px;
+
+            margin-bottom: 35px;
+        }
+
+        .card {
+            text-decoration: none;
+            color: inherit;
+
+            padding: 32px 20px;
+
+            border-radius: 28px;
+
+            background: rgba(255, 255, 255, 0.82);
+
+            border: 1px solid rgba(255, 255, 255, 0.95);
+
+            box-shadow: 0 12px 40px rgba(100, 75, 100, 0.08);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+
+            box-shadow: 0 20px 45px rgba(100, 75, 100, 0.14);
+        }
+
+        .pink-card {
+            background: linear-gradient(
+                145deg,
+                #fff,
+                #fff0f6
+            );
+
+            border-color: #ffd7e7;
+        }
+
+        .blue-card {
+            background: linear-gradient(
+                145deg,
+                #fff,
+                #eef3ff
+            );
+
+            border-color: #d8e2ff;
+        }
+
+        .emoji {
+            font-size: 55px;
+            margin-bottom: 18px;
+
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .card h2 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .pink-card h2 {
+            color: #e15c94;
+        }
+
+        .blue-card h2 {
+            color: #6486e9;
+        }
+
+        .card p {
+            font-size: 14px;
+            line-height: 1.8;
+
+            color: #817484;
+
+            margin-bottom: 22px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 12px 22px;
+
+            border-radius: 30px;
+
+            color: white;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 0.5px;
+        }
+
+        .pink-button {
+            background: linear-gradient(
+                90deg,
+                #ff78aa,
+                #ed8fc1
+            );
+        }
+
+        .blue-button {
+            background: linear-gradient(
+                90deg,
+                #7999ff,
+                #a18af7
+            );
+        }
+
+        .bottom-message {
+            font-size: 13px;
+            line-height: 1.8;
+
+            color: #968699;
+        }
+
+        .watermark {
+            position: fixed;
+
+            right: 15px;
+            bottom: 13px;
+
+            z-index: 10;
+
+            font-size: 12px;
+            letter-spacing: 0.5px;
+
+            color: #a17e9b;
+
+            background: rgba(255, 255, 255, 0.7);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+
+            padding: 8px 12px;
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(8px);
+        }
+
+        .heart {
+            position: fixed;
+
+            bottom: -40px;
+
+            pointer-events: none;
+
+            opacity: 0.5;
+
+            animation: rise linear forwards;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes rise {
+            from {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.5;
+            }
+
+            to {
+                transform: translateY(-110vh) rotate(25deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 28px 15px 65px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .card {
+                padding: 27px 18px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .watermark {
+                right: 10px;
+                bottom: 10px;
+                font-size: 10px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="top-label">
+            A Little World Made With Love ♡
+        </div>
+
+        <h1>
+            Two Hearts,<br>
+            Two Stories 💗
+        </h1>
+
+        <p class="subtitle">
+            Some feelings are too special for ordinary words.
+            So here's a little world made for them. 🎀
+        </p>
+
+        <p class="intro">
+            Choose your little story.<br>
+            There's something special waiting inside. 🧸
+        </p>
+
+        <section class="cards">
+
+            <!-- KUCHU PUCHU CARD -->
+
+            <a
+                href="kuchu-puchu/page1.html"
+                class="card pink-card"
+            >
+
+                <div class="emoji">
+                    🎀
+                </div>
+
+                <h2>
+                    Kuchu Puchu
+                </h2>
+
+                <p>
+                    For My Favorite Woman 💗<br>
+                    A little world of soft feelings,
+                    sweet memories and heartfelt words.
+                </p>
+
+                <span class="button pink-button">
+                    Open Her Story ♡
+                </span>
+
+            </a>
+
+
+            <!-- BUGGU CARD -->
+
+            <a
+                href="buggu/page1.html"
+                class="card blue-card"
+            >
+
+                <div class="emoji">
+                    🧸
+                </div>
+
+                <h2>
+                    Buggu
+                </h2>
+
+                <p>
+                    For My Favorite Man 💙<br>
+                    A little world of warm feelings,
+                    tiny moments and meaningful words.
+                </p>
+
+                <span class="button blue-button">
+                    Open His Story ♡
+                </span>
+
+            </a>
+
+        </section>
+
+        <p class="bottom-message">
+            Made of little moments, soft feelings and lots of care. 💌
+        </p>
+
+    </main>
+
+
+    <!-- INSTAGRAM WATERMARK -->
+
+    <div class="watermark">
+        ♡ @x2.rohuuuu.baghel ♡
+    </div>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <script>
+        const symbols = ["♡", "♥", "✧", "୨୧"];
+
+        function createFloatingHeart() {
+            const heart = document.createElement("div");
+
+            heart.className = "heart";
+
+            heart.textContent =
+                symbols[Math.floor(Math.random() * symbols.length)];
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                (12 + Math.random() * 18) + "px";
+
+            heart.style.animationDuration =
+                (7 + Math.random() * 6) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 14000);
+        }
+
+        setInterval(createFloatingHeart, 900);
+    </script>
+
+</body>
+  </html>
