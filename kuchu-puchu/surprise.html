@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A Little Surprise for Kuchu Puchu 🎁</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 30px 15px 75px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Trebuchet MS", sans-serif;
+      color: #783b56;
+      background: linear-gradient(135deg, #ffd6e7, #fff2f7, #ffc5dd);
+      overflow-x: hidden;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 650px;
+      padding: 35px 25px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.88);
+      border: 2px solid #ffbad5;
+      border-radius: 30px;
+      box-shadow: 0 12px 35px rgba(190, 91, 132, 0.2);
+      animation: appear 1s ease;
+    }
+
+    .gift {
+      font-size: 80px;
+      animation: bounce 2s infinite;
+    }
+
+    h1 {
+      color: #d94f89;
+      font-size: clamp(28px, 6vw, 42px);
+      margin: 15px 0;
+    }
+
+    .subtitle {
+      color: #b85c83;
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    .reveal-button,
+    .music-button {
+      padding: 13px 22px;
+      margin: 10px 5px;
+      border: none;
+      border-radius: 25px;
+      background: #dc6598;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .reveal-button:hover,
+    .music-button:hover {
+      background: #c94b82;
+      transform: scale(1.04);
+    }
+
+    .letter {
+      display: none;
+      margin-top: 25px;
+      padding: 22px;
+      text-align: left;
+      line-height: 2;
+      background: #fff0f6;
+      border: 1px dashed #e99abb;
+      border-radius: 20px;
+      animation: appear 0.8s ease;
+    }
+
+    .letter h2 {
+      text-align: center;
+      color: #d94f89;
+    }
+
+    .ending {
+      margin-top: 25px;
+      line-height: 2;
+      font-size: 16px;
+    }
+
+    .navigation {
+      margin-top: 25px;
+    }
+
+    .navigation a {
+      display: inline-block;
+      margin: 6px;
+      padding: 12px 19px;
+      border-radius: 25px;
+      background: #f5a6c5;
+      color: #71324e;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .watermark {
+      position: fixed;
+      bottom: 12px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #a34c72;
+      font-size: 12px;
+      letter-spacing: 1px;
+      pointer-events: none;
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -30px;
+      color: #e66b9e;
+      pointer-events: none;
+      animation: rise 8s linear infinite;
+    }
+
+    @keyframes rise {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.7;
+      }
+      to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+
+    <div class="gift">🎁💗</div>
+
+    <h1>A Little Surprise for You!</h1>
+
+    <p class="subtitle">
+      Kuchu Puchu, there's one more thing I want you to know... ♡
+    </p>
+
+    <p>
+      I made this little world with lots of feelings, tiny memories,
+      and words that sometimes are difficult to say out loud. 🧸
+    </p>
+
+    <button class="reveal-button" id="revealButton" type="button">
+      Open Your Little Letter 💌
+    </button>
+
+    <section class="letter" id="letter">
+      <h2>Dear Kuchu Puchu, 🌷</h2>
+
+      You deserve kindness on your difficult days, patience when
+      things feel confusing, and people who listen when you need
+      to be heard.
+
+      <br><br>
+
+      I hope this little website reminds you that your feelings
+      matter, your happiness matters, and the little things you do
+      can make someone's day brighter. 💗
+
+      <br><br>
+
+      Thank you for being a special part of this little story.
+      May we keep collecting sweet memories, sharing silly moments,
+      and learning how to understand each other better.
+
+      <br><br>
+
+      No grand promises are needed for every tomorrow.
+      Sometimes, the sweetest thing is simply showing up,
+      being honest, and choosing kindness again and again.
+
+      <br><br>
+
+      <div style="text-align: center;">
+        <strong>With lots of warmth and little hearts, ♡</strong><br>
+        Your Buggu 🧸💗
+      </div>
+    </section>
+
+    <div class="ending">
+      <p>
+        One little website. 🌸<br>
+        A thousand little feelings. 💌<br>
+        And memories still waiting to be made. ✨
+      </p>
+
+      <strong>Made with love, just for you. ♡</strong>
+    </div>
+
+    <button class="music-button" id="musicButton" type="button">
+      🎵 Play our special song
+    </button>
+
+    <audio id="backgroundMusic" loop>
+      <source src="../songs/kuchu-puchu/surprise.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="navigation">
+      <a href="page4.html">← Back to My Promises</a>
+      <a href="../index.html">Back to Our Little World 🏡</a>
+    </div>
+
+  </main>
+
+  <div class="watermark">♡ @x2.rohuuuu.baghel ♡</div>
+
+  <script>
+    const revealButton = document.getElementById("revealButton");
+    const letter = document.getElementById("letter");
+
+    revealButton.addEventListener("click", () => {
+      const isHidden = getComputedStyle(letter).display === "none";
+
+      if (isHidden) {
+        letter.style.display = "block";
+        revealButton.textContent = "Close Your Little Letter 💗";
+      } else {
+        letter.style.display = "none";
+        revealButton.textContent = "Open Your Little Letter 💌";
+      }
+    });
+
+    const music = document.getElementById("backgroundMusic");
+    const musicButton = document.getElementById("musicButton");
+
+    musicButton.addEventListener("click", async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+          musicButton.textContent = "⏸ Pause our special song";
+        } catch (error) {
+          musicButton.textContent = "Song unavailable — check the MP3 file";
+        }
+      } else {
+        music.pause();
+        musicButton.textContent = "🎵 Play our special song";
+      }
+    });
+
+    for (let i = 0; i < 18; i++) {
+      const heart = document.createElement("div");
+      heart.className = "floating-heart";
+      heart.textContent = ["♡", "♥", "✿", "💗", "✨"][i % 5];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDelay = Math.random() * 8 + "s";
+      heart.style.animationDuration = (6 + Math.random() * 6) + "s";
+      heart.style.fontSize = (14 + Math.random() * 17) + "px";
+      document.body.appendChild(heart);
+    }
+  </script>
+
+</body>
+</html>
